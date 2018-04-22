@@ -1,0 +1,8 @@
+.card {
+    max-width: 390px;
+    margin: auto;
+}
+
+.card img {
+    width: 150px;
+}
