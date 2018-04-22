@@ -7,10 +7,9 @@ import SelectedQuiz from './SelectedQuiz/SelectedQuiz';
 class App extends Component {
     state = {
         quizTypes: [
-            { id: 1, name: 'all'},
-            { id: 2, name: 'pitchers'},
-            { id: 3, name: 'infielders'},
-            { id: 4, name: 'outfielders'},
+            { id: 1, name: 'pitchers'},
+            { id: 2, name: 'infielders'},
+            { id: 3, name: 'outfielders'},
         ],
         pitchers: [
             {
@@ -97,6 +96,36 @@ class App extends Component {
                 name: 'John Ryan Murphy',
                 position: 'C',
                 img: 'http://mlb.mlb.com/mlb/images/players/head_shot/571974.jpg',
+                category: 'infielders'
+            },
+        ],
+        outfielders: [
+            {
+                num: 6,
+                name: 'David Peralta',
+                position: 'RF',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/444482.jpg',
+                category: 'outfielders'
+            },
+            {
+                num: 1,
+                name: 'Jarrod Dyson',
+                position: 'CF',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/502481.jpg',
+                category: 'outfielders'
+            },
+            {
+                num: 11,
+                name: 'A.J. Pollock',
+                position: 'CF',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/572041.jpg',
+                category: 'outfielders'
+            },
+            {
+                num: 3,
+                name: 'Daniel Descalso',
+                position: '3B',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/518614.jpg',
                 category: 'infielders'
             },
         ],
