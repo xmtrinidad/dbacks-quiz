@@ -39,6 +39,55 @@ class App extends Component {
                 position: 'Starting Pitcher',
                 img: 'http://mlb.mlb.com/mlb/images/players/head_shot/643327.jpg',
                 category: 'pitchers'
+            },
+            {
+                num: 31,
+                name: 'Brad Boxberger',
+                position: 'Closing Pitcher',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/502202.jpg',
+                category: 'pitchers'
+            },
+            {
+                num: 25,
+                name: 'Archie Bradley',
+                position: 'Relief Pitcher',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/605151.jpg',
+                category: 'pitchers'
+            },
+            {
+                num: 66,
+                name: 'Yoshihisa Hirano',
+                position: 'Relief Pitcher',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/673633.jpg',
+                category: 'pitchers'
+            },
+            {
+                num: 40,
+                name: 'Andrew Chafin',
+                position: 'Relief Pitcher',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/605177.jpg',
+                category: 'pitchers'
+            },
+            {
+                num: 30,
+                name: 'T.J. McFarland',
+                position: 'Relief Pitcher',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/519008.jpg',
+                category: 'pitchers'
+            },
+            {
+                num: 29,
+                name: 'Jorge De La Rosa',
+                position: 'Relief Pitcher',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/407822.jpg',
+                category: 'pitchers'
+            },
+            {
+                num: 57,
+                name: 'Fernando Salas',
+                position: 'Relief Pitcher',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/477569.jpg',
+                category: 'pitchers'
             }
         ],
         infielders: [
@@ -75,6 +124,13 @@ class App extends Component {
                 name: 'Nick Ahmed',
                 position: 'SS',
                 img: 'http://mlb.mlb.com/mlb/images/players/head_shot/605113.jpg',
+                category: 'infielders'
+            },
+            {
+                num: 22,
+                name: 'Jake Lamb',
+                position: 'C',
+                img: 'http://mlb.mlb.com/mlb/images/players/head_shot/571875.jpg',
                 category: 'infielders'
             },
             {
