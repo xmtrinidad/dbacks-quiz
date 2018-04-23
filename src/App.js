@@ -129,7 +129,9 @@ class App extends Component {
                 category: 'infielders'
             },
         ],
+        choices: [],
         selectedQuiz: null,
+        selectedAnswer: null
     };
 
     /**
@@ -143,11 +145,36 @@ class App extends Component {
             selected: selected.name,
             players: this.shuffle(this.state[selected.name]),
             questionIndex: 0,
-            selectedAnswer: null,
             right: 0,
             wrong: 0
         };
-        this.setState({selectedQuiz: quiz})
+        this.setState({ selectedQuiz: quiz }, () => {
+            this.setState({ choices: this.randomChoices() });
+        });
+
+    };
+
+    /**
+     * Get 4 random choices including correct answer
+     */
+    randomChoices = () => {
+        const playersArray = this.state.selectedQuiz.players;
+        let answer = this.state.selectedQuiz.players[this.state.selectedQuiz.questionIndex];
+        if (!answer) {
+            return;
+        }
+        const choices = [answer];
+        // Get three other random choices to add to array with answer
+        for (let i = 0; i <= 2; i++) {
+            const item = playersArray[Math.floor(Math.random()*playersArray.length)];
+            if (item === answer || choices.includes(item)) {
+                i--;
+            } else {
+                choices.push(item);
+            }
+        }
+        // Return the shuffled array of choices
+        return this.shuffle(choices)
     };
 
     /**
@@ -179,9 +206,8 @@ class App extends Component {
      * @param event - the radio button change
      */
     onRadioChange = (event) => {
-        const quizCopy = { ...this.state.selectedQuiz };
-        quizCopy.selectedAnswer = event.target.value;
-        this.setState({selectedQuiz: quizCopy});
+        let  selectedAnswer = event.target.value;
+        this.setState({selectedAnswer: selectedAnswer});
     };
 
     /**
@@ -189,13 +215,18 @@ class App extends Component {
      */
     checkAnswer = () => {
         const player = this.state.selectedQuiz.players[this.state.selectedQuiz.questionIndex];
-        const selectedAnswer = this.state.selectedQuiz.selectedAnswer;
+        let selectedAnswer = this.state.selectedAnswer;
 
         const quizCopy = { ...this.state.selectedQuiz };
         player.name === selectedAnswer ? quizCopy.right++ : quizCopy.wrong++;
         quizCopy.questionIndex++;
-        quizCopy.selectedAnswer = null;
-        this.setState({selectedQuiz: quizCopy});
+        selectedAnswer = null;
+        this.setState({
+            selectedQuiz: quizCopy,
+            selectedAnswer: selectedAnswer,
+        }, () => {
+            this.setState({choices: this.randomChoices()});
+        });
     };
 
 
@@ -211,8 +242,10 @@ class App extends Component {
           <main>
             <SelectedQuiz
                 quiz={this.state.selectedQuiz}
-                changed={this.onRadioChange}
+                change={this.onRadioChange}
                 check={this.checkAnswer}
+                choices={this.state.choices}
+                selected={this.state.selectedAnswer}
             />
           </main>
       </div>

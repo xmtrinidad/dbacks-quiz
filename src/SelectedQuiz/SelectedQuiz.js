@@ -9,10 +9,10 @@ const selectedQuiz = (props) => {
     }
     // Quiz selected, map over players array to create content
     else {
-        const choices = props.quiz.players.map((player, i) => {
+        const choices = !props.choices ? '' : props.choices.map((player, i) => {
            return(
                <div key={player.num} className="form-check form-check-inline">
-                   <input onChange={props.changed} className="form-check-input" type="radio" name="choices" id={`choice_${i}`}
+                   <input onChange={props.change} className="form-check-input" type="radio" name="choices" id={`choice_${i}`}
                           value={player.name}/>
                    <label className="form-check-label" htmlFor={`choice_${i}`}>{player.name}</label>
                </div>
@@ -26,7 +26,7 @@ const selectedQuiz = (props) => {
                     </div>
                     {choices}
                     <div className="text-center my-3">
-                        <button disabled={props.quiz.selectedAnswer === null} onClick={props.check} type="button" className="btn btn-primary mr-3">Enter</button>
+                        <button disabled={props.selected === null} onClick={props.check} type="button" className="btn btn-primary mr-3">Enter</button>
                     </div>
                 </div>
             );
@@ -35,7 +35,8 @@ const selectedQuiz = (props) => {
             // If the next index is undefined, quiz is completed
             <div className="Quiz">
                 {
-                    quizItems[props.quiz.questionIndex] === undefined ? <h1>Right: {props.quiz.right}, Wrong: {props.quiz.wrong}</h1>
+                    quizItems[props.quiz.questionIndex] === undefined ?
+                        <h1>Right: {props.quiz.right}, Wrong: {props.quiz.wrong}</h1>
                         : quizItems[props.quiz.questionIndex]
                 }
             </div>
