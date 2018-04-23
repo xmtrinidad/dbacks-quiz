@@ -1,4 +1,5 @@
 import React from 'react';
+import './QuizTypes.css';
 
 const quizTypes = (props) => {
     const buttons = props.types.map(type => {

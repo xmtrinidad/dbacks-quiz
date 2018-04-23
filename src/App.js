@@ -289,13 +289,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="jumbotron text-center">
-            <img src="https://upload.wikimedia.org/wikipedia/en/8/89/Arizona_Diamondbacks_logo.svg" alt="diamondbacks logo"/>
-            <QuizTypes
-                selected={this.selectQuiz}
-                types={this.state.quizTypes} />
+        <header className="jumbotron">
+            <h1 className="display-4">Dbacks Quiz</h1>
+            <p className="lead">Small project to review React concepts, checkout the readme for more information</p>
+            <p className="lead">
+                <a className="btn btn-primary btn-lg" href="https://github.com/xmtrinidad/dbacks-quiz" role="button">Readme</a>
+            </p>
         </header>
-          <main>
+          <main className="container">
+              <div className="text-center">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/8/89/Arizona_Diamondbacks_logo.svg" alt="diamondbacks logo"/>
+                  <h2 className="my-2">Select a quiz!</h2>
+              </div>
+              <QuizTypes
+                  selected={this.selectQuiz}
+                  types={this.state.quizTypes} />
             <SelectedQuiz
                 quiz={this.state.selectedQuiz}
                 change={this.onRadioChange}

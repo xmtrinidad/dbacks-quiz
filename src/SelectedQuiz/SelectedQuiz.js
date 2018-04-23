@@ -5,13 +5,13 @@ import './SelectedQuiz.css';
 const selectedQuiz = (props) => {
     // No quiz selected
     if (props.quiz === null) {
-        return (<h1>Select a Quiz!</h1>);
+        return ''
     }
     // Quiz selected, map over players array to create content
     else {
         const choices = !props.choices ? '' : props.choices.map((player, i) => {
            return(
-               <div key={player.num} className="form-check form-check-inline">
+               <div key={player.num} className="form-check">
                    <input onChange={props.change} className="form-check-input" type="radio" name="choices" id={`choice_${i}`}
                           value={player.name}/>
                    <label className="form-check-label" htmlFor={`choice_${i}`}>{player.name}</label>
@@ -20,11 +20,15 @@ const selectedQuiz = (props) => {
         });
         const quizItems = props.quiz.players.map(player => {
             return (
-                <div key={player.num} className="card mb-3">
-                    <div className="text-center">
-                        <img className="card-img-top img-fluid" src={player.img} alt={player.name} />
+                <div key={player.num} className="card my-3">
+                    <div className="content">
+                        <div className="text-center">
+                            <img className="card-img-top img-fluid" src={player.img} alt={player.name} />
+                        </div>
+                        <div>
+                            {choices}
+                        </div>
                     </div>
-                    {choices}
                     <div className="text-center my-3">
                         <button disabled={props.selected === null} onClick={props.check} type="button" className="btn btn-primary mr-3">Enter</button>
                     </div>
